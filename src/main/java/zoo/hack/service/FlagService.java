@@ -13,12 +13,14 @@ public class FlagService {
 
     @Autowired
     FlagBiz flagBiz;
-
+    
+    @CrossOrigin
     @RequestMapping("/{id}")
     public Flag findFlagById(@PathVariable("id") Long id) {
         return flagBiz.findById(id);
     }
 
+    @CrossOrigin
     @RequestMapping("/search")
     public List<Flag> findFlagById(@RequestParam(value = "keywords") String keywords) {
         return flagBiz.searchByTerms(keywords);

@@ -16,11 +16,13 @@ public class UserService {
     @Autowired
     UserBiz userBiz;
 
+    @CrossOrigin
     @RequestMapping(value = "/greeting", method = RequestMethod.GET)
     public String greeting(@RequestParam(value="name", defaultValue="World") String name) {
         return String.format(template, name);
     }
 
+    @CrossOrigin
     @RequestMapping("/{id}")
     public User findUserById(@PathVariable("id") Long id) {
         return userBiz.findById(id);
