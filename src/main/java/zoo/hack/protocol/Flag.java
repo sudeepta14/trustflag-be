@@ -13,7 +13,10 @@ import lombok.Setter;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Flag {
 	private User user;
-	private String flag;
+	private String name;
+    private String licensePlateNumber;
+    private String location;
+    private String phoneNumber;
 }
 
 

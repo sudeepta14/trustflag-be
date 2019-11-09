@@ -16,10 +16,20 @@ public class FlagEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-    @JoinColumn(name = "user_id")
-    @ManyToOne(targetEntity=UserEntity.class)
+//    @JoinColumn(name = "user_id")
+//    @ManyToOne(targetEntity=UserEntity.class)
+    @Column
 	private long userId;
     
-    @Column(name = "flag")
-	private String flag;
+    @Column(name = "name")
+	private String name;
+
+    @Column(name = "license_plate_number")
+    private String licensePlateNumer;
+
+    @Column(name = "location")
+    private String location;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
 }

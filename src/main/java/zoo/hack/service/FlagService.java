@@ -19,6 +19,11 @@ public class FlagService {
         return flagBiz.findById(id);
     }
 
+    @RequestMapping("/search")
+    public List<Flag> findFlagById(@RequestParam(value = "keywords") String keywords) {
+        return flagBiz.searchByTerms(keywords);
+    }
+
     @CrossOrigin
     @GetMapping("/all")
     public List<Flag> getFlagsUsers() {

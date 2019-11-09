@@ -18,12 +18,9 @@ public class UserBiz {
     
     public List<User> getAllUsers(){
         Iterable<UserEntity> userEntities = userRepository.findAll();
-        
         ArrayList<User> users = new ArrayList<>();
         for (UserEntity userEntity: userEntities){
-            User user = new User();
-            user.setUsername(userEntity.getUsername());
-            users.add(user);
+            users.add(fromEntity(userEntity));
         }
         return users;
     }
@@ -42,5 +39,12 @@ public class UserBiz {
     
     public void deleteById(Long id){
         userRepository.deleteById(id);
+    }
+
+    private User fromEntity(UserEntity userEntity){
+        User user = new User();
+        user.setEmail(userEntity.getEmail());
+        user.setUsername(userEntity.getUsername());
+        return user;
     }
 }
