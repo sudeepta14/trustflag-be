@@ -11,9 +11,9 @@ import lombok.Setter;
 @EqualsAndHashCode
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Target {
+public class Flag {
 	private User user;
-	private String target;
+	private String flag;
 }
 
 

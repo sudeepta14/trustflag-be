@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.26)
 # Database: flags
-# Generation Time: 2019-11-09 18:35:10 +0000
+# Generation Time: 2019-11-09 19:30:48 +0000
 # ************************************************************
 
 
@@ -35,6 +35,15 @@ CREATE TABLE `flag` (
   CONSTRAINT `flag_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+LOCK TABLES `flag` WRITE;
+/*!40000 ALTER TABLE `flag` DISABLE KEYS */;
+
+INSERT INTO `flag` (`id`, `flag`, `date_modified`, `user_id`)
+VALUES
+	(1,'maputo',NULL,1);
+
+/*!40000 ALTER TABLE `flag` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table user
@@ -51,6 +60,15 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `date_modified`)
+VALUES
+	(1,'testuser','password','testuser@test.com',NULL);
+
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
