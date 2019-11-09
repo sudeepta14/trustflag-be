@@ -7,11 +7,9 @@ import zoo.hack.protocol.Flag;
 
 import java.util.List;
 
-@RequestMapping("/users")
+@RequestMapping("/flags")
 @RestController
 public class FlagService {
-
-    private static final String template = "Hello, %s!";
 
     @Autowired
     FlagBiz flagBiz;
