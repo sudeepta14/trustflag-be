@@ -26,6 +26,7 @@ public class UserService {
         return userBiz.findById(id);
     }
 
+    @CrossOrigin
     @GetMapping("/all")
     public List<User> getAllUsers() {
         return userBiz.getAllUsers();
