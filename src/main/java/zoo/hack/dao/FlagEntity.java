@@ -8,12 +8,18 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "target")
-public class TargetEntity {
+@Table(name = "flag")
+public class FlagEntity {
 	
 	@Id
+    @Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+
+    @JoinColumn(name = "user_id")
+    @ManyToOne(targetEntity=UserEntity.class)
 	private long userId;
-	private String target;
+    
+    @Column(name = "flag")
+	private String flag;
 }
