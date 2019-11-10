@@ -19,7 +19,7 @@ public class OwnedFlag {
 	private Long userId;
 	private Date expirationDate;
     private String name;
-    private String licensePlateNumer;
+    private String licensePlateNumber;
     private String location;
     private String phoneNumber;
 }

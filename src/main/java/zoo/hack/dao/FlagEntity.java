@@ -24,7 +24,7 @@ public class FlagEntity {
 	private String name;
 
     @Column(name = "license_plate_number")
-    private String licensePlateNumer;
+    private String licensePlateNumber;
 
     @Column(name = "location")
     private String location;

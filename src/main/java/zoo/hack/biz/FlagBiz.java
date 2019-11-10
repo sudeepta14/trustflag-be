@@ -82,7 +82,7 @@ public class FlagBiz {
         flag.setId(flagEntity.getId());
         flag.setUser(user);
         flag.setExpirationDate(flagEntity.getExpirationDate());
-        flag.setLicensePlateNumer(flagEntity.getLicensePlateNumer());
+        flag.setLicensePlateNumber(flagEntity.getLicensePlateNumber());
         flag.setLocation(flagEntity.getLocation());
         flag.setName(flagEntity.getName());
         flag.setPhoneNumber(flagEntity.getPhoneNumber());
@@ -126,7 +126,7 @@ public class FlagBiz {
     public void createFlag(OwnedFlag flag) {
         FlagEntity flagEntity = new FlagEntity();
         flagEntity.setName(flag.getName());
-        flagEntity.setLicensePlateNumer(flag.getLicensePlateNumer());
+        flagEntity.setLicensePlateNumber(flag.getLicensePlateNumber());
         flagEntity.setLocation(flag.getLocation());
         flagEntity.setPhoneNumber(flag.getPhoneNumber());
         flagEntity.setUserId(flag.getUserId());
