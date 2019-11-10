@@ -67,7 +67,7 @@ public class FlagBiz {
         }
         flag.setUser(user);
         
-        flag.setExpires(flagEntity.getExpires());
+        flag.setExpirationDate(flagEntity.getExpirationDate());
         return flag;
     }
 
@@ -81,7 +81,7 @@ public class FlagBiz {
         }
         flag.setId(flagEntity.getId());
         flag.setUser(user);
-        flag.setExpires(flagEntity.getExpires());
+        flag.setExpirationDate(flagEntity.getExpirationDate());
         flag.setLicensePlateNumer(flagEntity.getLicensePlateNumer());
         flag.setLocation(flagEntity.getLocation());
         flag.setName(flagEntity.getName());
@@ -130,6 +130,7 @@ public class FlagBiz {
         flagEntity.setLocation(flag.getLocation());
         flagEntity.setPhoneNumber(flag.getPhoneNumber());
         flagEntity.setUserId(flag.getUserId());
+        flagEntity.setExpirationDate(flag.getExpirationDate());
         flagRepository.save(flagEntity);
     }
 }

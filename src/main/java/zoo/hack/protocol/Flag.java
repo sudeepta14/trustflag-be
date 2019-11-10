@@ -15,7 +15,7 @@ import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Flag {
 	private User user;
-	private Date expires;
+	private Date expirationDate;
 }
 
 

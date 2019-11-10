@@ -17,7 +17,7 @@ public class OwnedFlag {
     private Long id;
 	private User user;
 	private Long userId;
-	private Date expires;
+	private Date expirationDate;
     private String name;
     private String licensePlateNumer;
     private String location;

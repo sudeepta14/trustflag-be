@@ -32,6 +32,6 @@ public class FlagEntity {
     @Column(name = "phone_number")
     private String phoneNumber;
     
-    @Column(name = "expires")
-    private Date expires;
+    @Column(name = "expiration_date")
+    private Date expirationDate;
 }
