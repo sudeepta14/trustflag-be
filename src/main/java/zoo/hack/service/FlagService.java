@@ -38,7 +38,8 @@ public class FlagService {
     public List<OwnedFlag> getFlagsByUser(@PathVariable("userId") Long userId) {
         return flagBiz.getFlagsByUser(userId);
     }
-    
+
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public void deleteFlagById(@PathVariable("id") Long id) {
         flagBiz.deleteById(id);
