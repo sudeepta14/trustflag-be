@@ -14,6 +14,7 @@ import java.util.Date;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class OwnedFlag {
+    private Long id;
 	private User user;
 	private Date expires;
     private String name;

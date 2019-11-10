@@ -79,6 +79,7 @@ public class FlagBiz {
             UserEntity userEntity = userEntityOpt.get();
             user.setEmail(userEntity.getEmail());
         }
+        flag.setId(flagEntity.getId());
         flag.setUser(user);
         flag.setExpires(flagEntity.getExpires());
         flag.setLicensePlateNumer(flagEntity.getLicensePlateNumer());
