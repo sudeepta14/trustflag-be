@@ -64,6 +64,7 @@ public class FlagBiz {
         if (userEntityOpt.isPresent()) {
             UserEntity userEntity = userEntityOpt.get();
             user.setEmail(userEntity.getEmail());
+            user.setPhoneNumber(userEntity.getPhoneNumber());
         }
         flag.setUser(user);
         

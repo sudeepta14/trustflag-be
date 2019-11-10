@@ -13,7 +13,7 @@ import lombok.Setter;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
 	public String username;
-	public String password;
+	public String phoneNumber;
 	public String email;
 }
 
