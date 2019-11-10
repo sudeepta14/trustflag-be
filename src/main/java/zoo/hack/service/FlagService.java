@@ -44,4 +44,10 @@ public class FlagService {
     public void deleteFlagById(@PathVariable("id") Long id) {
         flagBiz.deleteById(id);
     }
+
+    @CrossOrigin
+    @PostMapping("")
+    public void createFlag(@RequestBody OwnedFlag flag) {
+        flagBiz.createFlag(flag);
+    }
 }

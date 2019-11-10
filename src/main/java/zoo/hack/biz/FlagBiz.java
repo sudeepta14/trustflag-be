@@ -122,4 +122,14 @@ public class FlagBiz {
         }
         return dedupledList;
     }
+
+    public void createFlag(OwnedFlag flag) {
+        FlagEntity flagEntity = new FlagEntity();
+        flagEntity.setName(flag.getName());
+        flagEntity.setLicensePlateNumer(flag.getLicensePlateNumer());
+        flagEntity.setLocation(flag.getLocation());
+        flagEntity.setPhoneNumber(flag.getPhoneNumber());
+        flagEntity.setUserId(flag.getUserId());
+        flagRepository.save(flagEntity);
+    }
 }

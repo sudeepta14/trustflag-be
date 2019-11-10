@@ -16,6 +16,7 @@ import java.util.Date;
 public class OwnedFlag {
     private Long id;
 	private User user;
+	private Long userId;
 	private Date expires;
     private String name;
     private String licensePlateNumer;
