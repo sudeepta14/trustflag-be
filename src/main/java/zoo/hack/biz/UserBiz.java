@@ -30,7 +30,7 @@ public class UserBiz {
         User user = new User();
         if (userEntityOpt.isPresent()) {
             UserEntity userEntity = userEntityOpt.get();
-            userEntity.setUsername(userEntity.getUsername());
+            userEntity.setPhoneNumber(userEntity.getPhoneNumber());
         } else {
             return null;
         }
@@ -44,7 +44,7 @@ public class UserBiz {
     private User fromEntity(UserEntity userEntity){
         User user = new User();
         user.setEmail(userEntity.getEmail());
-        user.setUsername(userEntity.getUsername());
+        user.setUsername(userEntity.getPhoneNumber());
         return user;
     }
 }

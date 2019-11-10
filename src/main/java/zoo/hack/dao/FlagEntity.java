@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -15,9 +16,7 @@ public class FlagEntity {
     @Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-
-//    @JoinColumn(name = "user_id")
-//    @ManyToOne(targetEntity=UserEntity.class)
+	
     @Column
 	private long userId;
     
@@ -32,4 +31,7 @@ public class FlagEntity {
 
     @Column(name = "phone_number")
     private String phoneNumber;
+    
+    @Column(name = "expires")
+    private Date expires;
 }

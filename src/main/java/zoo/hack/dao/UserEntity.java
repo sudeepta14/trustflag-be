@@ -2,10 +2,8 @@ package zoo.hack.dao;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -17,13 +15,10 @@ public class UserEntity {
     @Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-    @Column(name = "username")
-	private String username;
-
-    @Column(name = "password")
-    private String password;
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
 }

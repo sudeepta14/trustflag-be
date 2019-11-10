@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import zoo.hack.dao.FlagEntity;
 import zoo.hack.dao.UserEntity;
 import zoo.hack.protocol.Flag;
+import zoo.hack.protocol.OwnedFlag;
 import zoo.hack.protocol.User;
 import zoo.hack.repository.FlagRepository;
 import zoo.hack.repository.UserRepository;
@@ -12,7 +13,6 @@ import zoo.hack.repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class FlagBiz {
@@ -23,21 +23,30 @@ public class FlagBiz {
     @Autowired
     UserRepository userRepository;
     
-    public List<Flag> getAllFlags(){
+    public List<OwnedFlag> getAllFlags(){
         Iterable<FlagEntity> flagEntities = flagRepository.findAll();
-        ArrayList<Flag> flags = new ArrayList<>();
+        ArrayList<OwnedFlag> flags = new ArrayList<>();
         for (FlagEntity flagEntity: flagEntities){
-            flags.add(fromEntity(flagEntity));
+            flags.add(convertEntityToOwnedFlag(flagEntity));
         }
         return flags;
     }
 
-    public Flag findById(Long id) {
+    public List<OwnedFlag> getFlagsByUser(Long userId){
+        Iterable<FlagEntity> flagEntities = flagRepository.findByUserId(userId);
+        ArrayList<OwnedFlag> flags = new ArrayList<>();
+        for (FlagEntity flagEntity: flagEntities){
+            flags.add(convertEntityToOwnedFlag(flagEntity));
+        }
+        return flags;
+    }
+
+    public OwnedFlag findById(Long id) {
         Optional<FlagEntity> flagEntityOpt = flagRepository.findById(id);
-        Flag flag;
+        OwnedFlag flag;
         if (flagEntityOpt.isPresent()) {
             FlagEntity flagEntity = flagEntityOpt.get();
-            flag = fromEntity(flagEntity);
+            flag = convertEntityToOwnedFlag(flagEntity);
         } else {
             return null;
         }
@@ -48,7 +57,7 @@ public class FlagBiz {
         flagRepository.deleteById(id);
     }
     
-    private Flag fromEntity(FlagEntity flagEntity){
+    private Flag convertEntityToFlag(FlagEntity flagEntity){
         Flag flag = new Flag();
         User user = new User();
         Optional<UserEntity> userEntityOpt = userRepository.findById(flagEntity.getUserId());
@@ -57,9 +66,24 @@ public class FlagBiz {
             user.setEmail(userEntity.getEmail());
         }
         flag.setUser(user);
-        flag.setLicensePlateNumber(flagEntity.getLicensePlateNumer());
-        flag.setName(flagEntity.getName());
+        
+        flag.setExpires(flagEntity.getExpires());
+        return flag;
+    }
+
+    private OwnedFlag convertEntityToOwnedFlag(FlagEntity flagEntity){
+        OwnedFlag flag = new OwnedFlag();
+        User user = new User();
+        Optional<UserEntity> userEntityOpt = userRepository.findById(flagEntity.getUserId());
+        if (userEntityOpt.isPresent()) {
+            UserEntity userEntity = userEntityOpt.get();
+            user.setEmail(userEntity.getEmail());
+        }
+        flag.setUser(user);
+        flag.setExpires(flagEntity.getExpires());
+        flag.setLicensePlateNumer(flagEntity.getLicensePlateNumer());
         flag.setLocation(flagEntity.getLocation());
+        flag.setName(flagEntity.getName());
         flag.setPhoneNumber(flagEntity.getPhoneNumber());
         return flag;
     }
@@ -81,7 +105,7 @@ public class FlagBiz {
         for (Long id : matchingFlagIds){
             Optional<FlagEntity> flagEntityOpt = flagRepository.findById(id);
             if (flagEntityOpt.isPresent()){
-                flags.add(fromEntity(flagEntityOpt.get()));
+                flags.add(convertEntityToFlag(flagEntityOpt.get()));
             }
         }
 

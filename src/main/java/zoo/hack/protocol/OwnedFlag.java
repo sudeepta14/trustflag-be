@@ -13,9 +13,13 @@ import java.util.Date;
 @EqualsAndHashCode
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Flag {
+public class OwnedFlag {
 	private User user;
 	private Date expires;
+    private String name;
+    private String licensePlateNumer;
+    private String location;
+    private String phoneNumber;
 }
 
 
