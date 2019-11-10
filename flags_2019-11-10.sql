@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.26)
 # Database: flags
-# Generation Time: 2019-11-09 19:30:48 +0000
+# Generation Time: 2019-11-10 18:29:03 +0000
 # ************************************************************
 
 
@@ -27,20 +27,29 @@ DROP TABLE IF EXISTS `flag`;
 
 CREATE TABLE `flag` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `flag` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `date_modified` date DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
+  `phone_number` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `license_plate_number` varchar(255) DEFAULT NULL,
+  `expiration_date` date DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `par_ind` (`user_id`),
-  CONSTRAINT `flag_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+  KEY `par_ind` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `flag` WRITE;
 /*!40000 ALTER TABLE `flag` DISABLE KEYS */;
 
-INSERT INTO `flag` (`id`, `flag`, `date_modified`, `user_id`)
+INSERT INTO `flag` (`id`, `name`, `date_modified`, `user_id`, `phone_number`, `location`, `license_plate_number`, `expiration_date`)
 VALUES
-	(1,'maputo',NULL,1);
+	(1,'lawrence brewer',NULL,3,'7548597435','new york','4HKD893','2020-05-11'),
+	(2,'bob jones',NULL,2,'3894384321','austin','2DJD322','2020-05-11'),
+	(4,'philip cator',NULL,1,'6732983749','baltimore','3HUD943','2021-01-02'),
+	(5,'john lesson',NULL,1,'4372432842','orlando','1AAA111','2020-02-01'),
+	(16,'robert half',NULL,1,NULL,'sacramento',NULL,NULL),
+	(19,'billy kid',NULL,2,'7849324343','miami','6JGD8794','2020-10-07'),
+	(23,'jimmy wing',NULL,1,'7458353257','jacksonville',NULL,'2022-02-09');
 
 /*!40000 ALTER TABLE `flag` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -53,8 +62,7 @@ DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `date_modified` date DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -63,9 +71,11 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `date_modified`)
+INSERT INTO `user` (`id`, `phone_number`, `email`, `date_modified`)
 VALUES
-	(1,'testuser','password','testuser@test.com',NULL);
+	(1,'(267) 383-3724','anonymous@verizon.net',NULL),
+	(2,'(436) 748-2223','anonymous@gmail.com',NULL),
+	(3,'(784) 329-4238','anonymous@yahoo.com',NULL);
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;

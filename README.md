@@ -9,7 +9,7 @@ Spring boot app that connects to Mysql database. Includes controllers for basic 
 ##### Create 'flags' database
 - create database `flags`
 - change root password to `''`
-- seed with dump file `flags_2019-11-09.sql`
+- seed with dump file `flags_2019-11-10.sql`
 
 ### Build
 ```bash
