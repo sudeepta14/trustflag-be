@@ -1,16 +1,15 @@
-#TODO - find image
-FROM openjdk
+#TODO - find base image with java 8
 
-ENV WILDFLAG_HOME=/opt/wildflag-app
-ENV WILDFLAG_BIN=/opt/wildflag-app/bin
+ENV TRUSTFLAG_HOME=/opt/trustflag-app
+ENV TRUSTFLAG_BIN=/opt/trustflag-app/bin
 
-WORKDIR $WILDFLAG_HOME
+WORKDIR $TRUSTFLAG_HOME
 
 RUN mkdir /app/tmp
-ADD target/wildflag-*.jar $WILDFLAG_HOME/wildflag-app.jar
-ADD entry.sh $WILDFLAG_BIN/entry.sh
-ADD src/main/resources/application.yml $WILDFLAG_HOME/application.yml
+ADD target/trustflag-*.jar $TRUSTFLAG_HOME/trustflag-app.jar
+ADD entry.sh $TRUSTFLAG_BIN/entry.sh
+ADD src/main/resources/application.yml $TRUSTFLAG_HOME/application.yml
 
 EXPOSE 8080
 
-ENTRYPOINT ["/bin/sh", "/opt/wildflag-app/bin/entry.sh"]
+ENTRYPOINT ["/bin/sh", "/opt/trustflag-app/bin/entry.sh"]
