@@ -8,8 +8,8 @@ Spring boot app that connects to Mysql database. Includes controllers for basic 
 - install mysql (5.7 - https://dev.mysql.com/doc/refman/5.7/en/installing.html)
 ##### Create 'flags' database
 - create database `flags`
-- change root password to `''`
-- seed with dump file `flags_2019-11-10.sql`
+- change root password to `''` (or update connection properties in `application.yml`)
+- build tables and seed data by importing dump file `flags_2019-11-10.sql`
 
 ### Build
 ```bash
@@ -19,3 +19,5 @@ mvn clean install
 ```bash
 $ ./run-local.sh
 ```
+
+App will run on port 80
