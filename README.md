@@ -20,7 +20,3 @@ mvn clean install
 $ ./run-local.sh
 ```
 App will run on port 80
-# trustflag-be
-
-
-this is the backend engg work for trustflag project
