@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # trustflag-backend
 Spring boot app that connects to Mysql database. Includes controllers for basic CRUD operations on User and Flag entities
 
@@ -21,3 +22,7 @@ $ ./run-local.sh
 ```
 
 App will run on port 80
+=======
+# trustflag-be
+this is the backend engg work for trustflag project
+>>>>>>> a07e8e56710da42f7c1867a778a0bcdc06c5e8ea
